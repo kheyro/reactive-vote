@@ -35,46 +35,29 @@ describe('Application logic', () => {
 
   describe('vote', () => {
     it('creates a tally for the voted entries', () => {
-      const state = Map({
-        vote: Map({
-          pair: List.of('Brazil', 'France'),
-        }),
-        entries: List(),
-      });
+      const state = Map({ pair: List.of('Brazil', 'France') });
       const nextState = vote(state, 'Brazil');
       expect(nextState).toEqual(
-        Map({
-          vote: Map({
-            pair: List.of('Brazil', 'France'),
-            tally: Map({ 'Brazil': 1 }),
-          }),
-          entries: List.of(),
-        })
+        Map({ pair: List.of('Brazil', 'France'), tally: Map({ 'Brazil': 1 }) })
       );
     });
 
     it('add vote to an existing tally', () => {
       const state = Map({
-        vote: Map({
-          pair: List.of('Brazil', 'France'),
-          tally: Map({
-            'Brazil': 4,
-            'France': 2,
-          }),
+        pair: List.of('Brazil', 'France'),
+        tally: Map({
+          'Brazil': 4,
+          'France': 2,
         }),
-        entries: List(),
       });
       const nextState = vote(state, 'Brazil');
       expect(nextState).toEqual(
         Map({
-          vote: Map({
-            pair: List.of('Brazil', 'France'),
-            tally: Map({
-              'Brazil': 5,
-              'France': 2,
-            }),
+          pair: List.of('Brazil', 'France'),
+          tally: Map({
+            'Brazil': 5,
+            'France': 2,
           }),
-          entries: List(),
         })
       );
     });
@@ -135,7 +118,7 @@ describe('Application logic', () => {
         entries: List.of(),
       });
       const nextState = next(state);
-      expect(nextState).toEqual(Map({ winner: 'Brazil' }))
+      expect(nextState).toEqual(Map({ winner: 'Brazil' }));
     });
   });
 });
