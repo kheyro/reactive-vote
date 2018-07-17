@@ -58,5 +58,5 @@ describe('reducer', () => {
     ];
     const finalState = actions.reduce(reducer, Map());
     expect(finalState).toEqual(fromJS({ winner: 'Brazil' }));
-  })
+  });
 });
