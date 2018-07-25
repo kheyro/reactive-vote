@@ -1,6 +1,6 @@
 import { List, Map } from 'immutable';
 
-import { setEntries, next, vote } from '../core';
+import { setEntries, next, vote } from '../reducers/core';
 
 describe('Application logic', () => {
   describe('setEntries', () => {

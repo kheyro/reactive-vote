@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { vote, next, getWinners, setEntries, INITIAL_STATE } from '../core';
+import { vote, next, setEntries, INITIAL_STATE } from './core';
 
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
