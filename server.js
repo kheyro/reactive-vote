@@ -7,8 +7,8 @@ const path = require('path');
 
 export default function startServer(store) {
   app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
-    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Origin', '*');
+    // res.header('Access-Control-Allow-Credentials', 'true');
     res.header(
       'Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept'
@@ -22,7 +22,7 @@ export default function startServer(store) {
   });
 
   const port = process.env.PORT || 5000;
-  server.listen(port, () => console.log(`Listening on port ${port}`));
+  server.listen(port, () => console.log(`Listening on port ${port}...`));
 
   store.subscribe(() => io.emit('state', store.getState().toJS()));
   io.on('connection', socket => {
