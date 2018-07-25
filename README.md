@@ -1,1 +1,1 @@
-# react-redux-boilerplate
+# Reactive Vote Server
